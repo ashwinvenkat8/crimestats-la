@@ -1,6 +1,7 @@
 'use client'
 
 import React from "react";
+import './Search.css';
 
 export default function Search() {
     const [query, setQuery] = React.useState(null);
