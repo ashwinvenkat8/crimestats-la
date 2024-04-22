@@ -1,0 +1,82 @@
+.report-container {
+    display: flex;
+    flex: 1 0 auto;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+    height: 100vh;
+}
+
+.report-container h2 {
+    font-size: 1.8rem;
+}
+
+.report-container form {
+    display: flex;
+    flex: 1 0 auto;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 1rem;
+    height: max-content;
+}
+
+.report-container label {
+    display: flex;
+    margin: 1rem 0;
+    font-size: 1.1rem;
+}
+
+.report-container input {
+    padding: 0.5rem;
+    width: 100%;
+    color: rgb(var(--foreground-rgb));
+    background-color: rgb(var(--background-rgb));
+    outline: none;
+    border: none;
+    border-bottom: 0.5px solid rgb(var(--foreground-rgb));
+    font-size: 1.1rem;
+}
+
+.report-container input:hover {
+    border: none;
+    border-bottom: 1px solid rgb(var(--foreground-rgb));
+    outline: none;
+}
+
+.report-container button {
+    width: max-content;
+    margin: 1rem;
+    padding: 0.5rem;
+    color: rgb(var(--foreground-rgb));
+    background-color: unset;
+    border: none;
+    border: 1px solid rgb(var(--foreground-rgb));
+    font-size: 1rem;
+}
+
+.report-container button:hover {
+    color: rgb(var(--background-rgb));
+    background-color: rgb(var(--foreground-rgb));
+}
+
+.report-container .error-message {
+    color: #f00;
+    margin: 0.5rem 0;
+}
+
+.report-container .link {
+    margin: 0.5rem;
+    color: #005;
+    font-weight: 450;
+    text-decoration: none;
+}
+
+.report-container .home {
+    color: rgb(var(--foreground-muted-rgb));
+}
+
+.report-container .home:hover {
+    color: rgb(var(--foreground-rgb));
+}

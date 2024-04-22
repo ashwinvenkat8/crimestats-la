@@ -43,13 +43,6 @@ div header {
   flex-direction: row;
 }
 
-.return-home:hover,
-.try-again:hover {
-  text-decoration: underline;
-  text-underline-offset: 0.5rem;
-  font-weight: 500;
-}
-
 footer {
   display: flex;
   flex-direction: row;
@@ -100,5 +93,7 @@ a:visited {
 
 .return-home:hover,
 .try-again:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.5rem;
   font-weight: 500;
 }

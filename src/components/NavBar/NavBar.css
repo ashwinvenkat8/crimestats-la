@@ -24,8 +24,8 @@ header .nav-item {
     width: 12vw;
 }
 
-header nav .nav-item:hover,
-header nav .site-name:hover {
+header nav .nav-item a:hover,
+header nav .site-name a:hover {
   text-decoration: underline;
   text-underline-offset: 0.5rem;
   font-weight: 500;

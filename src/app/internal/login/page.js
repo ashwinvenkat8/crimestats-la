@@ -28,6 +28,8 @@ export default function Login() {
     console.group('TODO: Implement login functionality');
     console.log(`Payload: ${JSON.stringify({ username: username, password: passwordHash })}\tEncoded: ${encodedPayload}`);
     console.groupEnd();
+
+    window.location.href = '/internal/dashboard';
   };
 
   return (

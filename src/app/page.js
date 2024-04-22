@@ -1,5 +1,6 @@
 import "./globals.css";
 import NavBar from "@/components/NavBar/NavBar";
+import QuickStatsBar from "@/components/QuickStatsBar/QuickStatsBar";
 import Search from "@/components/Search/Search";
 
 export default function Home() {
@@ -7,6 +8,13 @@ export default function Home() {
     { name: "Home", link: "/" },
     { name: "Report an Incident", link: "/report" },
     { name: "LAPD Login", link: "/internal/login" }
+  ];
+  const quickStatsItems = [
+    { name: 'Top 5 Areas', value: 'Top5AreasByIncidentFrequency' },
+    { name: 'Top 5 Crimes', value: 'Top5CrimesByIncidentFrequency' },
+    { name: 'Top 5 Premises', value: 'Top5PremisesByIncidentFrequency' },
+    { name: 'Top 5 Weapons', value: 'Top5WeaponsByIncidentFrequency' },
+    { name: 'Victim Distribution', value: 'VictimDistributionByGender' }
   ];
   
   return (
@@ -17,8 +25,7 @@ export default function Home() {
       <main>
         <div className="container">
           <Search />
-          <div className="filler"></div>
-          <p>Table or visualizations will be added here</p>
+          <QuickStatsBar items={quickStatsItems} />
           <div className="filler"></div>
         </div>
       </main>

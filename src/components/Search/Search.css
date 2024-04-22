@@ -11,7 +11,7 @@
     color: rgb(var(--foreground-rgb));
     background-color: rgb(var(--background-rgb));
     border: 0.5px solid rgb(var(--foreground-rgb));
-    border-radius: 25px;
+    border-radius: 5px;
     font-size: 1rem;
 }
 
