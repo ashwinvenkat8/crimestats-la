@@ -41,8 +41,22 @@ export default function Report() {
           }} required />
         </div>
         <div>
-          <label htmlFor="input2">Input 2</label>
-          <input type="password" name="input2" onChange={(e) => {
+          <label htmlFor="victim-age">Victim Age</label>
+          <input type="text" name="victim-age" onChange={(e) => {
+            setPassword(e.target.value);
+            setErrorMessage('');
+          }} required />
+        </div>
+        <div>
+          <label htmlFor="crime-desc">Crime Description</label>
+          <input type="text" name="crime-desc" onChange={(e) => {
+            setPassword(e.target.value);
+            setErrorMessage('');
+          }} required />
+        </div>
+        <div>
+          <label htmlFor="weapon-dec">Weapon Description</label>
+          <input type="text" name="weapon-desc" onChange={(e) => {
             setPassword(e.target.value);
             setErrorMessage('');
           }} required />
