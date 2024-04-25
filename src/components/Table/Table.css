@@ -23,6 +23,11 @@
     padding: 1px;
 }
 
+.table-container .incidents-table tbody tr:hover {
+    background-color: rgb(var(--background-muted-rgb));
+    cursor: pointer;
+}
+
 .table-container .incidents-table tbody tr td {
     text-overflow: ellipsis;
 }

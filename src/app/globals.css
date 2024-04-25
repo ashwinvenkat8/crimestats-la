@@ -9,6 +9,7 @@
     --foreground-rgb: 255, 255, 255;
     --foreground-muted-rgb: 155, 155, 155;
     --background-rgb: 0, 0, 0;
+    --background-muted-rgb: 30, 30, 30;
   }
 }
 

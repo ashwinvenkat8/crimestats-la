@@ -20,6 +20,10 @@ header .site-name {
     font-weight: 500;
 }
 
+header .la {
+    color: #f70;
+}
+
 header .nav-item {
     width: 12vw;
 }

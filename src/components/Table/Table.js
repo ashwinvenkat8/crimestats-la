@@ -30,13 +30,13 @@ export default function Table({ data }) {
                                 <th>Date Reported</th>
                                 <th>Date Occurred</th>
                                 <th>Time Occurred</th>
-                                <th>Status</th>
                                 <th>Crime</th>
-                                <th>Premise</th>
+                                <th>Status</th>
+                                {/* <th>Premise</th>
                                 <th>Weapon</th>
                                 <th>MO</th>
                                 <th>Location</th>
-                                <th>Victim</th>
+                                <th>Victim</th> */}
                                 <th className="col-action">Action</th>
                             </tr>
                         </thead>
@@ -48,13 +48,13 @@ export default function Table({ data }) {
                                         <td>{incident.date_rptd}</td>
                                         <td>{incident.date_occ}</td>
                                         <td>{incident.time_occ}</td>
-                                        <td>{incident.status}</td>
                                         <td>{incident.crime}</td>
-                                        <td>{incident.premise}</td>
+                                        <td>{incident.status}</td>
+                                        {/* <td>{incident.premise}</td>
                                         <td>{incident.weapon}</td>
                                         <td>{incident.modus_operandi}</td>
                                         <td>{incident.location}</td>
-                                        <td>{incident.victim}</td>
+                                        <td>{incident.victim}</td> */}
                                         <td className="col-action">
                                             <center>
                                                 <button className="action-button update">Update</button>

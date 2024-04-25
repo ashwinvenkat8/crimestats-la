@@ -30,7 +30,6 @@
 
 .report-container input {
     padding: 0.5rem;
-    width: 100%;
     color: rgb(var(--foreground-rgb));
     background-color: rgb(var(--background-rgb));
     outline: none;

@@ -10,11 +10,12 @@ export default function Home() {
     { name: "LAPD Login", link: "/internal/login" }
   ];
   const quickStatsItems = [
-    { name: 'Top 5 Areas', value: 'Top5Areas' },
-    { name: 'Top 5 Crimes', value: 'Top5Crimes' },
-    { name: 'Top 5 Premises', value: 'Top5Premises' },
-    { name: 'Top 5 Weapons', value: 'Top5Weapons' },
-    { name: 'Victim Distribution', value: 'VictimDistribution' }
+    { name: 'Top 5 Areas', value: 'top5areas' },
+    { name: 'Top 5 Crimes', value: 'top5crimes' },
+    { name: 'Top 5 Premises', value: 'top5premises' },
+    { name: 'Top 5 Weapons', value: 'top5weapons' },
+    { name: 'Victim Gender Distribution', value: 'victimDistributionByGender' },
+    { name: 'Victim Descent Distribution', value: 'victimDistributionByDescent' }
   ];
   
   return (

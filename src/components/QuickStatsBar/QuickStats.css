@@ -4,11 +4,11 @@
     justify-content: space-between;
     text-align: center;
     position: relative;
-    width: 80%;
+    width: 90%;
 }
 
 .quick-stats-bar button {
-    width: 11rem;
+    width: 15rem;
     margin: 0.5rem;
     padding: 0.5rem;
     color: rgb(var(--foreground-muted-rgb));

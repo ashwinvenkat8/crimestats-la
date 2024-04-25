@@ -4,7 +4,7 @@ export default function NavBar({ navItems }) {
     return (
         <nav>
             <div className="site-name">
-                <a href="/">CrimeStats.LA</a>
+                <a href="/">CrimeStats.<span className="site-name la">LA</span></a>
             </div>
             <div className="filler"></div>
             {navItems.map((item) => (

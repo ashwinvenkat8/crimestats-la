@@ -7,9 +7,7 @@ import './QuickStats.css';
 const fetchData = async (endpoint) => {
     const data = await fetch(`${process.env.NEXT_PUBLIC_ATLAS_URL}/${endpoint}`, {
         method: 'GET',
-        headers: {
-            'accept': 'application/json'
-        }
+        headers: { 'accept': 'application/json' }
     });
 
     if (data.ok) {
@@ -19,98 +17,59 @@ const fetchData = async (endpoint) => {
     }
 }
 
-const getQuickStatsData = async (view) => {
-    let data = null;
-
-    switch(view) {
-        case 'Top5Areas':
-            data = await fetchData('top5areas');
-            break;
-        
-        case 'Top5Crimes':
-            data = await fetchData('top5crimes');
-            break;
-        
-        case 'Top5Premises':
-            data = await fetchData('top5premises');
-            break;
-        
-        case 'Top5Weapons':
-            data = await fetchData('top5weapons');
-            break;
-        
-        case 'VictimDistribution':
-            data = await fetchData('victimDistribution');
-            break;
-        
-        default:
-            console.error(`Invalid QuickStats view: ${view}`);
-            return data;
-    }
-
-    return data;
-};
-
 export default function QuickStats({ items }) {
     const [currentView, setCurrentView] = useState(null);
     const [columns, setColumns] = useState([]);
     const [data, setData] = useState([]);
-    const [quickStatsData, setQuickStatsData] = useState([]);
     
     const handleClick = async (e) => {
         e.preventDefault();
         
-        const data = await getQuickStatsData(e.target.value);
-        const parsedResult = [];
+        const result = await fetchData(e.target.value);
+        const colName = e.target.name;
+        const resultColumns = [
+            {
+                name: colName,
+                selector: row => row.colName
+            },
+            {
+                name: 'Count',
+                selector: row => row.count,
+                sortable: true
+            }
+        ];
+        
+        let resultData = [];
 
-        data.result.forEach((item) => {
-            parsedResult[item.area[0]['area_name']] = item.count;
-        });
-        
-        console.log(parsedResult);
-        
+        if(result) {
+            result.forEach((item) => {
+                resultData.push({ colName: item['_id'], count: item['count'] });
+            });
+        }
+
         setCurrentView(e.target.value);
-        setQuickStatsData(parsedResult);
+        setColumns(resultColumns);
+        setData(resultData);
     }
 
     const renderContent = () => {
-        switch(currentView) {
-            case 'Top5Areas':
-                return (
-                    <div className="quick-stats">
-                        <p>Top 5 Areas</p>
-                    </div>
-                );
-            case 'Top5Crimes':
-                return (
-                    <div className="quick-stats">
-                        <p>Top 5 Crimes</p>
-                    </div>
-                );
-            case 'Top5Premises':
-                return (
-                    <div className="quick-stats">
-                        <p>Top 5 Premises</p>
-                    </div>
-                );
-            case 'Top5Weapons':
-                return (
-                    <div className="quick-stats">
-                        <p>Top 5 Weapons</p>
-                    </div>
-                );
-            case 'VictimDistribution':
-                return (
-                    <div className="quick-stats">
-                        <p>Victim Distribution</p>
-                    </div>
-                );
-            default:
-                return (
-                    <div className="quick-stats">
-                        <p>Table or visualizations will be added here</p>
-                    </div>
-                );
+        if(!currentView) {
+            return (
+                <div className="quick-stats">
+                    <p>Table or visualizations will be added here</p>
+                </div>
+            );
+        } else {
+            return (
+                <div className="quick-stats">
+                    <DataTable
+                        columns={columns}
+                        data={data}
+                        highlightOnHover={true}
+                        theme="dark"
+                    />
+                </div>
+            );
         }
     };
 
