@@ -1,13 +1,12 @@
-import "./globals.css";
 import NavBar from "@/components/NavBar/NavBar";
 import QuickStats from "@/components/QuickStatsBar/QuickStats";
-import Search from "@/components/Search/Search";
+import "./globals.css";
 
 export default function Home() {
   const navItems = [
     { name: "Home", link: "/" },
-    { name: "Report an Incident", link: "/report" },
-    { name: "LAPD Login", link: "/internal/login" }
+    { name: "Report Incident", link: "/report" },
+    { name: "Manage Incidents", link: "/internal/login" }
   ];
   const quickStatsItems = [
     { name: 'Top 5 Areas', value: 'top5areas' },
@@ -25,7 +24,6 @@ export default function Home() {
       </header>
       <main>
         <div className="container">
-          <Search />
           <QuickStats items={quickStatsItems} />
           <div className="filler"></div>
         </div>

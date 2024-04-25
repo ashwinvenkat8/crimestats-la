@@ -4,8 +4,18 @@ import Link from "next/link";
 import React from "react";
 import './Report.css';
 
+// /getAreas
+// /getCrimes
+// /getMOs
+// /getPremises
+// /getWeapons
+
 const getData = async () => {
-  
+  const areas = [];
+  const crimes = [];
+  const modus_operandi = [];
+  const premises = [];
+  const weapons = [];
 };
 
 export default function Report() {

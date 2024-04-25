@@ -1,11 +1,10 @@
 import NavBar from "@/components/NavBar/NavBar";
 import Search from "@/components/Search/Search";
-import "./Dashboard.css";
 import Table from "@/components/Table/Table";
+import "./Dashboard.css";
 
 const Dashboard = () => {
   const navItems = [
-    { name: "Dashboard", link: "/internal/dashboard" },
     { name: "Logout", link: "/internal/login" }
   ];
 
@@ -17,7 +16,7 @@ const Dashboard = () => {
       <main>
         <div className="container">
           <Search />
-          <Table />
+          <Table data={[]} />
         </div>
       </main>
     </div>

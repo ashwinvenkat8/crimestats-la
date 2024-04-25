@@ -22,3 +22,32 @@
     border: 1px solid rgb(var(--foreground-rgb));
     color: rgb(var(--foreground-rgb));
 }
+
+.quick-stats {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 60%;
+    width: 90%;
+}
+
+.quick-stats .quick-stats-table {
+    width: 100%;
+    height: 100%;
+    margin: 0.5rem;
+    padding: 1rem;
+    border: 0.5px solid rgb(var(--foreground-rgb));
+    border-radius: 5px;
+    text-align: center;
+}
+
+.quick-stats .quick-stats-table thead tr {
+    color: rgb(var(--foreground-muted-rgb));
+    border: none;
+    border-bottom: 1px solid rgb(var(--foreground-rgb));
+    padding: 1px;
+}
+
+.quick-stats .quick-stats-table tbody tr:hover {
+    background-color: rgb(var(--background-muted-rgb));
+}
