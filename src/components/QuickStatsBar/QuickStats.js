@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import DataTable from "react-data-table-component";
-import './QuickStatsBar.css';
+import './QuickStats.css';
 
 const fetchData = async (endpoint) => {
     const data = await fetch(`${process.env.NEXT_PUBLIC_ATLAS_URL}/${endpoint}`, {
@@ -21,14 +21,10 @@ const fetchData = async (endpoint) => {
 
 const getQuickStatsData = async (view) => {
     let data = null;
-    let parsedData = null;
 
     switch(view) {
         case 'Top5Areas':
             data = await fetchData('top5areas');
-            data.result.forEach((item) => {
-                parsedData[item.area[0]['area_name']] = item.count;
-            });
             break;
         
         case 'Top5Crimes':
@@ -55,7 +51,7 @@ const getQuickStatsData = async (view) => {
     return data;
 };
 
-export default function QuickStatsBar({ items }) {
+export default function QuickStats({ items }) {
     const [currentView, setCurrentView] = useState(null);
     const [columns, setColumns] = useState([]);
     const [data, setData] = useState([]);
@@ -64,7 +60,7 @@ export default function QuickStatsBar({ items }) {
     const handleClick = async (e) => {
         e.preventDefault();
         
-        const data = await getQuickStatsData(e.target.value); //await fetch(`/api/quickstats?view=${e.target.value}`);
+        const data = await getQuickStatsData(e.target.value);
         const parsedResult = [];
 
         data.result.forEach((item) => {

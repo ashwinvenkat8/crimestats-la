@@ -1,6 +1,6 @@
 import "./globals.css";
 import NavBar from "@/components/NavBar/NavBar";
-import QuickStatsBar from "@/components/QuickStatsBar/QuickStatsBar";
+import QuickStats from "@/components/QuickStatsBar/QuickStats";
 import Search from "@/components/Search/Search";
 
 export default function Home() {
@@ -25,7 +25,7 @@ export default function Home() {
       <main>
         <div className="container">
           <Search />
-          <QuickStatsBar items={quickStatsItems} />
+          <QuickStats items={quickStatsItems} />
           <div className="filler"></div>
         </div>
       </main>

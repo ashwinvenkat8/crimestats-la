@@ -11,13 +11,14 @@
     width: 11rem;
     margin: 0.5rem;
     padding: 0.5rem;
-    color: rgb(var(--foreground-rgb));
+    color: rgb(var(--foreground-muted-rgb));
     background-color: unset;
-    border: 1px solid rgb(var(--foreground-rgb));
+    border: 1px solid rgb(var(--foreground-muted-rgb));
     border-radius: 10px;
     font-size: 1rem;
 }
 
 .quick-stats-bar button:hover {
-    font-weight: bold;
+    border: 1px solid rgb(var(--foreground-rgb));
+    color: rgb(var(--foreground-rgb));
 }

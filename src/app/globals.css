@@ -1,7 +1,7 @@
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --foreground-muted-rgb: 130, 130, 130;
-  --background-rgb: 255, 255, 255;
+  --foreground-rgb: 255, 255, 255;
+  --foreground-muted-rgb: 155, 155, 155;
+  --background-rgb: 0, 0, 0;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -15,6 +15,7 @@
 @media (prefers-color-scheme: light) {
   :root {
     --foreground-rgb: 0, 0, 0;
+    --foreground-muted-rgb: 130, 130, 130;
     --background-rgb: 255, 255, 255;
   }
 }
