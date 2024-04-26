@@ -46,19 +46,19 @@
 }
 
 .table-container .incidents-table .update {
-    background-color: #05c;
-    color: rgb(var(--foreground-rgb));
+    background-color: rgb(var(--update-button-bg-rgb));
+    color: rgb(var(--button-text-rgb));
 }
 
 .table-container .incidents-table .update:hover {
-    background-color: #03b;
+    background-color: rgb(var(--update-button-hover-bg-rgb));
 }
 
 .table-container .incidents-table .delete {
-    background-color: #b20;
-    color: rgb(var(--foreground-rgb));
+    background-color: rgb(var(--delete-button-bg-rgb));
+    color: rgb(var(--button-text-rgb));
 }
 
 .table-container .incidents-table .delete:hover {
-    background-color: #a00;
+    background-color: rgb(var(--delete-button-hover-bg-rgb));
 }

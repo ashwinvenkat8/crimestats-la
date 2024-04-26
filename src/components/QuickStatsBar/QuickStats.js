@@ -35,8 +35,6 @@ const fetchData = async (endpoint) => {
 
 export default function QuickStats({ items }) {
     const [currentView, setCurrentView] = useState(null);
-    // const [columns, setColumns] = useState([]);
-    // const [data, setData] = useState([]);
     const [chartOptions, setChartOptions] = useState({});
     const [chartData, setChartData] = useState({});
 
@@ -52,7 +50,7 @@ export default function QuickStats({ items }) {
                 datasets: [{
                     label: e.target.name,
                     data: [],
-                    backgroundColor: 'rgba(100, 100, 220, 0.5)',
+                    backgroundColor: 'rgba(255, 119, 0, 0.7)',
                 }]
             };
 
@@ -63,45 +61,18 @@ export default function QuickStats({ items }) {
             
             setChartOptions({
                 responsive: 'true',
-                backgroundColor: 'rgba(75, 192, 192, 0.2)',
                 plugins: {
                     title: {
                         display: true,
                         text: e.target.name,
-                        font: {
-                            size: 20
-                        },
-                        color: 'white'
+                        font: { size: 20 }
                     }
                 }
             });
             setChartData(currChartData);
         }
 
-        // const colName = e.target.name;
-        // const resultColumns = [
-        //     {
-        //         name: colName,
-        //         selector: row => row.colName
-        //     },
-        //     {
-        //         name: 'Count',
-        //         selector: row => row.count,
-        //         sortable: true
-        //     }
-        // ];
-
-        // let resultData = [];
-
-        // if (result) {
-        //     result.forEach((item) => {
-        //         resultData.push({ colName: item['_id'], count: item['count'] });
-        //     });
-        // }
-
         setCurrentView(e.target.value);
-        // setColumns(resultColumns);
-        // setData(resultData);
     }
 
     const renderContent = () => {
@@ -114,29 +85,7 @@ export default function QuickStats({ items }) {
         } else {
             return (
                 <div className="quick-stats">
-                    <br />
                     <Bar options={chartOptions} data={chartData} />
-                    {/* <table className="quick-stats-table">
-                        <thead>
-                            <tr>
-                                {
-                                    columns.map((col, idx) => (
-                                        <th key={idx}>{col.name}</th>
-                                    ))
-                                }
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {
-                                data.map((val, idx) => (
-                                    <tr key={idx}>
-                                        <td>{val.colName}</td>
-                                        <td>{val.count}</td>
-                                    </tr>
-                                ))
-                            }
-                        </tbody>
-                    </table> */}
                 </div>
             );
         }

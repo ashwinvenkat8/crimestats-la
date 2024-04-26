@@ -2,6 +2,12 @@
   --foreground-rgb: 255, 255, 255;
   --foreground-muted-rgb: 155, 155, 155;
   --background-rgb: 0, 0, 0;
+  --background-muted-rgb: 30, 30, 30;
+  --button-text-rgb: 255, 255, 255;
+  --update-button-bg-rgb: 0, 85, 204;
+  --delete-button-bg-rgb: 187, 34, 0;
+  --update-button-hover-bg-rgb: 0, 51, 187;
+  --delete-button-hover-bg-rgb: 170, 0, 0;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -10,6 +16,11 @@
     --foreground-muted-rgb: 155, 155, 155;
     --background-rgb: 0, 0, 0;
     --background-muted-rgb: 30, 30, 30;
+    --button-text-rgb: 255, 255, 255;
+    --update-button-bg-rgb: 0, 85, 204;
+    --delete-button-bg-rgb: 187, 34, 0;
+    --update-button-hover-bg-rgb: 0, 51, 187;
+    --delete-button-hover-bg-rgb: 170, 0, 0;
   }
 }
 
@@ -18,6 +29,11 @@
     --foreground-rgb: 0, 0, 0;
     --foreground-muted-rgb: 130, 130, 130;
     --background-rgb: 255, 255, 255;
+    --button-text-rgb: 255, 255, 255;
+    --update-button-bg-rgb: 0, 85, 204;
+    --delete-button-bg-rgb: 187, 34, 0;
+    --update-button-hover-bg-rgb: 0, 51, 187;
+    --delete-button-hover-bg-rgb: 170, 0, 0;
   }
 }
 

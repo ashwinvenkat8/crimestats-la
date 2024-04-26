@@ -1,5 +1,4 @@
 import NavBar from "@/components/NavBar/NavBar";
-import Search from "@/components/Search/Search";
 import Table from "@/components/Table/Table";
 import "./Dashboard.css";
 
@@ -15,7 +14,6 @@ const Dashboard = () => {
       </header>
       <main>
         <div className="container">
-          <Search />
           <Table data={[]} />
         </div>
       </main>
