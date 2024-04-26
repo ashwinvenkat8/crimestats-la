@@ -29,11 +29,12 @@
     --foreground-rgb: 0, 0, 0;
     --foreground-muted-rgb: 130, 130, 130;
     --background-rgb: 255, 255, 255;
+    --background-muted-rgb: 220, 220, 220;
     --button-text-rgb: 255, 255, 255;
-    --update-button-bg-rgb: 0, 85, 204;
-    --delete-button-bg-rgb: 187, 34, 0;
-    --update-button-hover-bg-rgb: 0, 51, 187;
-    --delete-button-hover-bg-rgb: 170, 0, 0;
+    --update-button-bg-rgb: 0, 90, 220;
+    --delete-button-bg-rgb: 220, 0, 0;
+    --update-button-hover-bg-rgb: 0, 60, 200;
+    --delete-button-hover-bg-rgb: 200, 0, 0;
   }
 }
 
