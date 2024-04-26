@@ -46,8 +46,8 @@ export default function Report() {
         </div>
         <div>
           <label htmlFor="area_name">Area</label>
-          <select name="area_name" onChange={handleChange}>
-            <option value="">Select an area...</option>
+          <select name="area_name" onChange={(e) => setFormData({ area_name: e.target.value })}>
+            <option value={null}>Select an area...</option>
           </select>
         </div>
         
