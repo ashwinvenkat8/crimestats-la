@@ -78,7 +78,7 @@ export default function QuickStats({ items }) {
                 datasets: [{
                     label: e.target.name,
                     data: [],
-                    backgroundColor: 'rgba(255, 130, 0, 0.6)'
+                    backgroundColor: '#00a19b'
                 }]
             };
 
