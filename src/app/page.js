@@ -6,7 +6,7 @@ export default function Home() {
   const navItems = [
     { name: "Home", link: "/" },
     { name: "Report Incident", link: "/report" },
-    { name: "Manage Incidents", link: "/internal/login" }
+    { name: "LAPD Login", link: "/internal/login" }
   ];
   const quickStatsItems = [
     { name: 'Top 5 Areas', value: 'top5areas' },

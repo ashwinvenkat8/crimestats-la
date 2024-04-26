@@ -1,75 +1,95 @@
+'use client'
+
+import { useEffect, useState } from 'react';
 import './Table.css';
 
-export default function Table({ data }) {
-    data = [];
+const fetchData = async (skip, limit) => {
+    const params = `skip=${parseInt(skip)}&limit=${parseInt(limit)}`;
+    const data = await fetch(`${process.env.NEXT_PUBLIC_ATLAS_URL}/getIncidents?${params}`, {
+        method: 'GET',
+        headers: { 'accept': 'application/json' }
+    });
 
-    for (let i = 0; i < 10; i++) {
-        data.push({
-            dr_no: '123456',
-            date_rptd: '2021-01-01',
-            date_occ: '2021-01-01',
-            time_occ: '12:00',
-            status: 'Open',
-            crime: 'Robbery',
-            premise: 'Residence',
-            weapon: 'Handgun',
-            modus_operandi: 'Threatened victim with a gun',
-            location: '1234 Main St',
-            victim: 'John Doe'
+    if (data.ok) {
+        return await data.json();
+    } else {
+        console.error(`Failed to fetch data from /getIncidents: ${data.status} ${data.statusText}`);
+    }
+}
+
+export default function Table() {
+    const [data, setData] = useState([{}]);
+    const [skip, setSkip] = useState(0);
+    const [limit, setLimit] = useState(10);
+
+    useEffect(() => {
+        fetchData(skip, limit).then((data) => {
+            setData(data);
         });
-    };
+    }, [skip, limit]);
 
     return (
-        <div className="table-container">
-            {
-                data ? ( 
-                    <table className="incidents-table">
-                        <thead>
-                            <tr>
-                                <th>Dr No</th>
-                                <th>Date Reported</th>
-                                <th>Date Occurred</th>
-                                <th>Time Occurred</th>
-                                <th>Crime</th>
-                                <th>Status</th>
-                                {/* <th>Premise</th>
-                                <th>Weapon</th>
-                                <th>MO</th>
-                                <th>Location</th>
-                                <th>Victim</th> */}
-                                <th className="col-action">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {
-                                data.map((incident, index) => (
-                                    <tr key={index}>
-                                        <td>{incident.dr_no}</td>
-                                        <td>{incident.date_rptd}</td>
-                                        <td>{incident.date_occ}</td>
-                                        <td>{incident.time_occ}</td>
-                                        <td>{incident.crime}</td>
-                                        <td>{incident.status}</td>
-                                        {/* <td>{incident.premise}</td>
-                                        <td>{incident.weapon}</td>
-                                        <td>{incident.modus_operandi}</td>
-                                        <td>{incident.location}</td>
-                                        <td>{incident.victim}</td> */}
-                                        <td className="col-action">
-                                            <center>
-                                                <button className="action-button update">Update</button>
-                                                <button className="action-button delete">Delete</button>
-                                            </center>
-                                        </td>
-                                    </tr>
-                                ))
-                            }
-                        </tbody>
-                    </table>
-                ) : (
-                    <p>No incident records found</p>
-                )
-            }
-        </div>
+        data?.length > 0 ? ( 
+            <div className="table-container">
+                <div className="pagination">
+                    <span>No. of records: {data.length}</span>
+                    <div className="filler"></div>
+                    <div>
+                        <label htmlFor="range">Range </label>
+                        <select name="range" onChange={(e) => setSkip(e.target.value)} defaultValue={skip}>
+                            <option value="0">1-500</option>
+                            <option value="500">500-1000</option>
+                            <option value="1000">1000-1500</option>
+                            <option value="1500">1500-2000</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label htmlFor="limit">Limit </label>
+                        <select name="limit" onChange={(e) => setLimit(e.target.value)} defaultValue={limit}>
+                            <option value="10">10</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                            <option value="200">250</option>
+                            <option value="500">500</option>
+                            <option value="1000">1000</option>
+                            <option value="2000">2000</option>
+                        </select>
+                    </div>
+                </div>
+                <table className="incidents-table">
+                    <thead>
+                        <tr>
+                            <th>Dr No</th>
+                            <th>Date Reported</th>
+                            <th>Date Occurred</th>
+                            <th>Time Occurred</th>
+                            <th className="col-action">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            data.map((incident, index) => (
+                                <tr key={index}>
+                                    <td>{incident.dr_no}</td>
+                                    <td>{incident.date_rptd}</td>
+                                    <td>{incident.date_occ}</td>
+                                    <td>{incident.time_occ}</td>
+                                    <td className="col-action">
+                                        <center>
+                                            <button className="action-button update">Update</button>
+                                            <button className="action-button delete">Delete</button>
+                                        </center>
+                                    </td>
+                                </tr>
+                            ))
+                        }
+                    </tbody>
+                </table>
+            </div>
+        ) : (
+            <div className="table-container empty">
+                <p>No incident records found</p>
+            </div>
+        )
     );
 }

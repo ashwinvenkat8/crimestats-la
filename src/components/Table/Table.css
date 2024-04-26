@@ -2,24 +2,62 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 1rem;
     height: 100vh;
+    width: 100%;
+}
+
+.empty {
+    justify-content: center;
+    height: 100%;
+}
+
+.table-container .pagination {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    justify-content: end;
     width: 90%;
+}
+
+.table-container .pagination span {
+    margin: 0 0.5rem;
+    padding: 0.5rem;
+    color: rgb(var(--foreground-muted-rgb));
+}
+
+.table-container .pagination select {
+    margin: 0 0.5rem;
+    padding: 0.5rem;
+    width: max-content;
+    text-align: center;
+    outline: none;
+    border: 1px solid rgb(var(--foreground-muted-rgb));
+    border-radius: 5px;
+    background-color: rgb(var(--background-rgb));
+    color: rgb(var(--foreground-muted-rgb));
+}
+
+.table-container .pagination select:hover {
+    border: 1px solid rgb(var(--foreground-rgb));
+    color: rgb(var(--foreground-rgb));
+    cursor: pointer;
+}
+
+.table-container .pagination label {
+    color: rgb(var(--foreground-muted-rgb));
 }
 
 .table-container .incidents-table {
     width: 100%;
     margin: 0.5rem;
     padding: 1rem;
-    border: 0.5px solid rgb(var(--foreground-rgb));
-    border-radius: 5px;
     height: 100vh;
     text-align: center;
 }
 
 .table-container .incidents-table thead tr {
     color: rgb(var(--foreground-muted-rgb));
-    border: none;
-    border-bottom: 1px solid rgb(var(--foreground-rgb));
     padding: 1px;
 }
 

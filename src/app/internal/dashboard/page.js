@@ -14,7 +14,7 @@ const Dashboard = () => {
       </header>
       <main>
         <div className="container">
-          <Table data={[]} />
+          <Table />
         </div>
       </main>
     </div>

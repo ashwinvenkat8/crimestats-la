@@ -20,6 +20,34 @@ Chart.register(
     Tooltip
 );
 
+const victimDescentMap = {
+    'A': 'Other Asian',
+    'B': 'Black',
+    'C': 'Chinese',
+    'D': 'Cambodian',
+    'F': 'Filipino',
+    'G': 'Guamanian',
+    'H': 'Hispanic/Latin/Mexican',
+    'I': 'American Indian/Alaskan Native',
+    'J': 'Japanese',
+    'K': 'Korean',
+    'L': 'Laotian',
+    'O': 'Other',
+    'P': 'Pacific Islander',
+    'S': 'Samoan',
+    'U': 'Hawaiian',
+    'V': 'Vietnamese',
+    'W': 'White',
+    'X': 'Unknown',
+    'Z': 'Asian Indian'
+};
+
+const victimGenderMap = {
+    'F': 'Female',
+    'M': 'Male',
+    'X': 'Unknown'
+};
+
 const fetchData = async (endpoint) => {
     const data = await fetch(`${process.env.NEXT_PUBLIC_ATLAS_URL}/${endpoint}`, {
         method: 'GET',
@@ -50,17 +78,28 @@ export default function QuickStats({ items }) {
                 datasets: [{
                     label: e.target.name,
                     data: [],
-                    backgroundColor: 'rgba(255, 119, 0, 0.7)',
+                    backgroundColor: 'rgba(255, 130, 0, 0.6)'
                 }]
             };
 
             result.forEach((item) => {
-                currChartLabels.push(item['_id']);
+                if(e.target.value === 'victimDistributionByGender') {
+                    currChartLabels.push(victimGenderMap[item['_id']]);
+                } else if (e.target.value === 'victimDistributionByDescent') {
+                    currChartLabels.push(victimDescentMap[item['_id']]);
+                } else {
+                    currChartLabels.push(item['_id']);
+                }
+                
                 currChartData.datasets[0].data.push(item['count']);
             });
             
             setChartOptions({
                 responsive: 'true',
+                indexAxis: 'y',
+                elements: {
+                    bar: { borderWidth: 0.7 }
+                },
                 plugins: {
                     title: {
                         display: true,
