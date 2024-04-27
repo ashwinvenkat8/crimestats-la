@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react';
+import DetailView from '../DetailView/DetailView';
 import './Table.css';
 
 const fetchData = async (skip, limit) => {
@@ -21,12 +22,17 @@ export default function Table() {
     const [data, setData] = useState([{}]);
     const [skip, setSkip] = useState(0);
     const [limit, setLimit] = useState(10);
+    const [selectedIncident, setSelectedIncident] = useState(null);
 
     useEffect(() => {
         fetchData(skip, limit).then((data) => {
             setData(data);
         });
     }, [skip, limit]);
+
+    const handleDetailViewClose = () => {
+        setSelectedIncident(null);
+    };
 
     return (
         data?.length > 0 ? ( 
@@ -69,7 +75,10 @@ export default function Table() {
                     <tbody>
                         {
                             data.map((incident, index) => (
-                                <tr key={index}>
+                                <tr key={index} onClick={() => {
+                                    setSelectedIncident(incident)
+                                    console.log(selectedIncident);
+                                }}>
                                     <td>{incident.dr_no}</td>
                                     <td>{incident.date_rptd}</td>
                                     <td>{incident.date_occ}</td>
@@ -85,6 +94,9 @@ export default function Table() {
                         }
                     </tbody>
                 </table>
+                {selectedIncident && (
+                    <DetailView incident={selectedIncident} onClose={handleDetailViewClose} />
+                )}
             </div>
         ) : (
             <div className="table-container empty">
