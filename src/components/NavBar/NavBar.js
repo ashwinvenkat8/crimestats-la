@@ -1,6 +1,13 @@
+'use client'
+
 import './NavBar.css';
 
 export default function NavBar({ navItems }) {
+    const handleLogout = () => {
+        sessionStorage.removeItem('auth');
+        alert('You have been logged out. Redirecting you to the login page now.');
+    };
+
     return (
         <nav>
             <div className="site-name">
@@ -9,7 +16,11 @@ export default function NavBar({ navItems }) {
             <div className="filler"></div>
             {navItems.map((item) => (
                 <div key={item.link} className="nav-item">
-                    <a href={item.link}>{item.name}</a>
+                    {item.name === "Logout" ? (
+                        <a href={item.link} onClick={handleLogout}>{item.name}</a>
+                    ) : (
+                        <a href={item.link}>{item.name}</a>
+                    )}
                 </div>
             ))}
         </nav>

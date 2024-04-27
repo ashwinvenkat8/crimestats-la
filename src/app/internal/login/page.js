@@ -2,13 +2,20 @@
 
 import DOMPurify from "dompurify";
 import Link from "next/link";
-import React from "react";
+import { useEffect, useState } from "react";
 import './Login.css';
 
 export default function Login() {
-  const [errorMessage, setErrorMessage] = React.useState('');
-  const [username, setUsername] = React.useState('');
-  const [password, setPassword] = React.useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
+  useEffect(() => {
+    if(sessionStorage.getItem('auth')) {
+      alert('Looks like you\'re already logged in. Redirecting you to the dashboard now.');
+      window.location.replace('/internal/dashboard');
+    }
+  }, []);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -25,16 +32,19 @@ export default function Login() {
       )
     ).map((b) => b.toString(16).padStart(2, "0")).join("");
 
-    const encodedPayload = Buffer.from(JSON.stringify({
+    const encodedCredentials = Buffer.from(JSON.stringify({
       username: sanitizedUsername,
       password: passwordHash
     })).toString('base64');
 
-    console.groupCollapsed('TODO: Implement login functionality');
-    console.log(`Payload: ${encodedPayload}`);
-    console.groupEnd();
+    if(encodedCredentials !== process.env.NEXT_PUBLIC_SECRET) {
+      setErrorMessage('Invalid credentials');
+      return;
+    }
 
-    window.location.href = '/internal/dashboard';
+    sessionStorage.setItem('auth', encodedCredentials);
+
+    window.location.replace('/internal/dashboard');
   };
 
   return (
