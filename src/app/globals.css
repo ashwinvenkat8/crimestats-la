@@ -4,7 +4,7 @@
   --foreground-muted-rgb: 155, 155, 155;
   --background-rgb: 0, 0, 0;
   --background-muted-rgb: 30, 30, 30;
-  --button-text-rgb: 255, 255, 255;
+  --action-button-text-rgb: 255, 255, 255;
   --update-button-bg-rgb: 0, 85, 204;
   --delete-button-bg-rgb: 187, 34, 0;
   --update-button-hover-bg-rgb: 0, 51, 187;
@@ -18,7 +18,8 @@
     --foreground-muted-rgb: 155, 155, 155;
     --background-rgb: 0, 0, 0;
     --background-muted-rgb: 30, 30, 30;
-    --button-text-rgb: 255, 255, 255;
+    --close-button-text-rgb: 220, 220, 220;
+    --close-button-text-hover-rgb: 0, 0, 0;
     --update-button-bg-rgb: 0, 85, 204;
     --delete-button-bg-rgb: 187, 34, 0;
     --update-button-hover-bg-rgb: 0, 51, 187;
@@ -33,7 +34,8 @@
     --foreground-muted-rgb: 130, 130, 130;
     --background-rgb: 255, 255, 255;
     --background-muted-rgb: 220, 220, 220;
-    --button-text-rgb: 255, 255, 255;
+    --close-button-text-rgb: 0, 0, 0;
+    --close-button-text-hover-rgb: 255, 255, 255;
     --update-button-bg-rgb: 0, 90, 220;
     --delete-button-bg-rgb: 220, 0, 0;
     --update-button-hover-bg-rgb: 0, 60, 200;

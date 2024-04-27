@@ -18,14 +18,14 @@
     padding: 2rem;
     overflow-y: auto;
     position: relative;
-    background-color: rgb(var(--background-muted-rgb));
+    background-color: rgb(var(--background-rgb));
     border: none;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(var(--background-muted-rgb), 0.8);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(var(--background-muted-rgb), 1);
 }
 
 .detail-view-content h2 {
-    color: rgb(var(--foreground-muted-rgb));
+    color: rgb(var(--foreground-rgb));
     text-align: center;
 }
 
@@ -78,8 +78,8 @@
 
 .actions .close {
     background-color: transparent;
-    color: rgb(var(--foreground-muted-rgb));
-    border: 0.5px solid rgb(var(--foreground-muted-rgb));
+    color: rgb(var(--close-button-text-rgb));
+    border: 0.5px solid rgb(var(--foreground-rgb));
 }
 
 .actions .update:hover {
@@ -90,12 +90,12 @@
     background-color: rgb(var(--delete-button-bg-rgb));
 }
 
-.actions .close:hover {
-    background-color: rgb(var(--foreground-muted-rgb));
+.actions .update:hover,
+.actions .delete:hover {
+    color: rgb(var(--action-button-text-rgb));
 }
 
-.actions .update:hover,
-.actions .delete:hover,
 .actions .close:hover {
-    color: rgb(var(--button-text-rgb));
+    background-color: rgb(var(--foreground-rgb));
+    color: rgb(var(--close-button-text-hover-rgb));
 }
