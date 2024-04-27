@@ -5,104 +5,120 @@ export default function DetailView({ incident, onClose }) {
     <div className="detail-view">
       <div className="detail-view-content">
         <center><h3>Incident Details</h3></center>
-        {
-          incident['dr_no'] ? (
-            <div>
-              <strong>DR No:</strong> {incident['dr_no']}
-            </div>
-          ) : null
-        }
-        {
-          incident['date_rptd'] ? (
-            <div>
-              <strong>Date Reported:</strong> {incident['date_rptd']}
-            </div>
-          ) : null
-        }
-        {
-          incident['date_occ'] ? (
-            <div>
-              <strong>Date Occurred:</strong> {incident['date_occ']}
-            </div>
-          ) : null
-        }
-        {
-          incident['time_occ'] ? (
-            <div>
-              <strong>Time Occurred:</strong> {incident['time_occ']}
-            </div>
-          ) : null
-        }
-        {
-          incident['victim']['age'] ? (
-            <div>
-              <strong>Victim Age:</strong> {incident['victim']['age']}
-            </div>
-          ) : null
-        }
-        {
-          incident['victim']['sex'] ? (
-            <div>
-              <strong>Victim Sex:</strong> {incident['victim']['sex']}
-            </div>
-          ) : null
-        }
-        {
-          incident['victim']['descent'] ? (
-            <div>
-              <strong>Victim Descent:</strong> {incident['victim']['descent']}
-            </div>
-          ) : null
-        }
-        {
-          incident['area']['area_name'] ? (
-            <div>
-              <strong>Area:</strong> {incident['area']['area_name']}
-            </div>
-          ) : null
-        }
-        {
-          incident['location']['location'] ? (
-            <div>
-              <strong>Address:</strong> {incident['location']['location']}
-            </div>
-          ) : null
-        }
-        {
-          incident['location']['cross_street'] ? (
-            <div>
-              <strong>Cross Street:</strong> {incident['location']['cross_street']}
-            </div>
-          ) : null
-        }
-        {
-          incident['crime']['desc'] ? (
-            <div>
-              <strong>Crime:</strong> {incident['crime']['desc']}
-            </div>
-          ) : null
-        }
-        {
-          incident['premise']['desc'] ? (
-            <div>
-              <strong>Premise:</strong> {incident['premise']['desc']}
-            </div>
-          ) : null
-        }
-        {
-          incident['weapon']['desc'] ? (
-            <div>
-              <strong>Weapon:</strong> {incident['weapon']['desc']}
-            </div>
-          ) : null
-        }
-        {
-          incident['modus_operandi']['desc'] ? (
-            <div>
-              <strong>MO:</strong> {incident['modus_operandi']['desc']}
-            </div>
-          ) : null
-        }
+        <table>
+          {
+            incident['dr_no'] ? (
+              <tr>
+                <th><strong>DR No</strong></th>
+                <td>{incident['dr_no']}</td>
+              </tr>
+            ) : null
+          }
+          {
+            incident['date_rptd'] ? (
+              <tr>
+                <th><strong>Date Reported</strong></th>
+                <td>{incident['date_rptd']}</td>
+              </tr>
+            ) : null
+          }
+          {
+            incident['date_occ'] ? (
+              <tr>
+                <th><strong>Date Occurred</strong></th>
+                <td>{incident['date_occ']}</td>
+              </tr>
+            ) : null
+          }
+          {
+            incident['time_occ'] ? (
+              <tr>
+                <th><strong>Time Occurred</strong></th>
+                <td>{incident['time_occ']}</td>
+              </tr>
+            ) : null
+          }
+          {
+            incident['victim']['age'] ? (
+              <tr>
+                <th><strong>Victim Age</strong></th>
+                <td>{incident['victim']['age']}</td>
+              </tr>
+            ) : null
+          }
+          {
+            incident['victim']['sex'] ? (
+              <tr>
+                <th><strong>Victim Sex</strong></th>
+                <td>{incident['victim']['sex']}</td>
+              </tr>
+            ) : null
+          }
+          {
+            incident['victim']['descent'] ? (
+              <tr>
+                <th><strong>Victim Descent</strong></th>
+                <td>{incident['victim']['descent']}</td>
+              </tr>
+            ) : null
+          }
+          {
+            incident['area']['area_name'] ? (
+              <tr>
+                <th><strong>Area</strong></th>
+                <td>{incident['area']['area_name']}</td>
+              </tr>
+            ) : null
+          }
+          {
+            incident['location']['location'] ? (
+              <tr>
+                <th><strong>Address</strong></th>
+                <td>{incident['location']['location']}</td>
+              </tr>
+            ) : null
+          }
+          {
+            incident['location']['cross_street'] ? (
+              <tr>
+                <th><strong>Cross Street</strong></th>
+                <td>{incident['location']['cross_street']}</td>
+              </tr>
+            ) : null
+          }
+          {
+            incident['crime']['desc'] ? (
+              <tr>
+                <th><strong>Crime</strong></th>
+                <td>{incident['crime']['desc']}</td>
+              </tr>
+            ) : null
+          }
+          {
+            incident['premise']['desc'] ? (
+              <tr>
+                <th><strong>Premise</strong></th>
+                <td>{incident['premise']['desc']}</td>
+              </tr>
+            ) : null
+          }
+          {
+            incident['weapon']['desc'] ? (
+              <tr>
+                <th><strong>Weapon</strong></th>
+                <td>{incident['weapon']['desc']}</td>
+              </tr>
+            ) : null
+          }
+          {
+            incident['modus_operandi']['desc'] ? (
+              <tr>
+                <th><strong>MO</strong></th>
+                <td>{incident['modus_operandi']['desc']}</td>
+              </tr>
+            ) : null
+          }
+        </table>
         <button className="close-detail-view" onClick={onClose}>Close</button>
       </div>
     </div>

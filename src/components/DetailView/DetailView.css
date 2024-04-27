@@ -24,8 +24,19 @@
     box-shadow: 0 0 10px rgba(var(--background-muted-rgb), 0.8);
 }
 
-.detail-view-content h3 {
-    color: rgb(var(--foreground-muted-rgb));
+.detail-view-content table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.detail-view table th {
+    padding: 0.5rem;
+    text-align: right;
+}
+
+.detail-view table td {
+    padding: 0.5rem;
+    text-align: left;
 }
 
 .close-detail-view {
