@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react';
+import DOMPurify from 'dompurify';
 import './DetailView.css';
 
 const fetchData = async (endpoint) => {
