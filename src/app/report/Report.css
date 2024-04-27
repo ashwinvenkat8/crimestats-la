@@ -60,6 +60,20 @@
     background-color: rgb(var(--foreground-rgb));
 }
 
+.report-container form div input[type="datetime-local"] {
+    border: none;
+    color-scheme: var(--color-scheme);
+    width: 100%;
+}
+
+.report-container .victim-info {
+    display: flex;
+    flex: 1 0 auto;
+    flex-direction: row;
+    align-items: center;
+    gap: 5rem;
+}
+
 .report-container .error-message {
     color: #f00;
     margin: 0.5rem 0;
@@ -78,4 +92,9 @@
 
 .report-container .home:hover {
     color: rgb(var(--foreground-rgb));
+}
+
+.report-container .required:after {
+    content: "*";
+    color: #f00;
 }
