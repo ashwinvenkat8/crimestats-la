@@ -12,6 +12,10 @@
     font-size: 1.8rem;
 }
 
+.report-container p {
+    color: rgb(var(--foreground-muted-rgb));
+}
+
 .report-container form {
     display: flex;
     flex: 1 0 auto;
@@ -36,12 +40,36 @@
     border: none;
     border-bottom: 0.5px solid rgb(var(--foreground-rgb));
     font-size: 1.1rem;
+    width: 50vh;
 }
 
 .report-container input:hover {
     border: none;
     border-bottom: 1px solid rgb(var(--foreground-rgb));
     outline: none;
+}
+
+.report-container input[type="datetime-local"] {
+    border: none;
+    color-scheme: var(--color-scheme);
+}
+
+.report-container select {
+    margin: 0 0.5rem;
+    padding: 0.5rem;
+    width: 50vh;
+    text-align: center;
+    outline: none;
+    border: 1px solid rgb(var(--foreground-muted-rgb));
+    border-radius: 5px;
+    background-color: rgb(var(--background-rgb));
+    color: rgb(var(--foreground-muted-rgb));
+}
+
+.report-container select:hover {
+    border: 1px solid rgb(var(--foreground-rgb));
+    color: rgb(var(--foreground-rgb));
+    cursor: pointer;
 }
 
 .report-container button {
@@ -60,37 +88,22 @@
     background-color: rgb(var(--foreground-rgb));
 }
 
-.report-container form div input[type="datetime-local"] {
-    border: none;
-    color-scheme: var(--color-scheme);
-    width: 100%;
-}
-
-.report-container .victim-info {
-    display: flex;
-    flex: 1 0 auto;
-    flex-direction: row;
-    align-items: center;
-    gap: 5rem;
-}
-
 .report-container .error-message {
     color: #f00;
     margin: 0.5rem 0;
 }
 
-.report-container .link {
-    margin: 0.5rem;
-    color: #005;
+.report-container .link-home {
+    position: absolute;
+    left: 3%;
+    top: 3%;
+    padding: 1rem;
+    color: rgb(var(--foreground-muted-rgb));
     font-weight: 450;
     text-decoration: none;
 }
 
-.report-container .home {
-    color: rgb(var(--foreground-muted-rgb));
-}
-
-.report-container .home:hover {
+.report-container .link-home:hover {
     color: rgb(var(--foreground-rgb));
 }
 
