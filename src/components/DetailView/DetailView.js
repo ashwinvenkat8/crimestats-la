@@ -601,12 +601,10 @@ export default function DetailView({ incident, onClose }) {
               <>
                 <button className="update" onClick={handleUpdate}>Update</button>
                 <button className="close" onClick={onClose}>Close</button>
+                <button className="delete" onClick={() => doDelete(incident['_id'], incident['dr_no'])}>Delete</button>
               </>
             ) : (
-              <>
-                <button className="delete" onClick={() => doDelete(incident['_id'], incident['dr_no'])}>Delete</button>
-                <button className="close" onClick={onClose}>Close</button>
-              </>
+              <button className="close" onClick={onClose}>Close</button>
             )
           }
         </div>
