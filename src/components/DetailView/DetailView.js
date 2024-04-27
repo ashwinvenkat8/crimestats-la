@@ -7,17 +7,19 @@ export default function DetailView({ incident, onClose }) {
     console.log('Update incident');
   };
 
-  const doDelete = async (incidentId) => {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_ATLAS_URL}/deleteIncident?incidentId=${incidentId}&secret=${process.env.NEXT_PUBLIC_SECRET}`, {
-      method: 'DELETE'
-    });
-    const result = await response.json();
+  const doDelete = async (incidentId, incidentDrNo) => {
+    if(confirm(`Are you sure you want to delete incident ${incidentDrNo}?`)) {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_ATLAS_URL}/deleteIncident?incidentId=${incidentId}&secret=${process.env.NEXT_PUBLIC_SECRET}`, {
+        method: 'DELETE'
+      });
+      const result = await response.json();
 
-    if(result.status === 'ERROR') {
-      alert('The incident could be deleted due to an error. Please try again later.');
-      console.error(result.error);
-    } else {
-      alert(result.message);
+      if(result.status === 'ERROR') {
+        alert('The incident could be deleted due to an error. Please try again later.');
+        console.error(result.error);
+      } else {
+        alert(result.message);
+      }
     }
   };
 
@@ -142,7 +144,7 @@ export default function DetailView({ incident, onClose }) {
         <div className="actions">
           <button className="update" onClick={handleUpdate}>Update</button>
           <button className="close" onClick={onClose}>Close</button>
-          <button className="delete" onClick={() => doDelete(incident['_id'])}>Delete</button>
+          <button className="delete" onClick={() => doDelete(incident['_id'], incident['dr_no'])}>Delete</button>
         </div>
       </div>
     </div>
