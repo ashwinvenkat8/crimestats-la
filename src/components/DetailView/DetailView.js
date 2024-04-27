@@ -216,41 +216,50 @@ export default function DetailView({ incident, onClose }) {
 
     const sanitizedFormData = {
       area: {
+        _id: incident['area']['_id'],
         area: DOMPurify.sanitize(formData.area.area),
         areaName: DOMPurify.sanitize(formData.area.areaName)
       },
       modusOperandi: {
+        _id: incident['modus_operandi']['_id'],
         code: DOMPurify.sanitize(formData.modusOperandi.code),
         desc: DOMPurify.sanitize(formData.modusOperandi.desc)
       },
       crime: {
+        _id: incident['crime']['_id'],
         code: DOMPurify.sanitize(formData.crime.code),
         desc: DOMPurify.sanitize(formData.crime.desc)
       },
       premise: {
+        _id: incident['premise']['_id'],
         code: DOMPurify.sanitize(formData.premise.code),
         desc: DOMPurify.sanitize(formData.premise.desc)
       },
       weapon: {
+        _id: incident['weapon']['_id'],
         code: DOMPurify.sanitize(formData.weapon.code),
         desc: DOMPurify.sanitize(formData.weapon.desc)
       },
       status: {
+        _id: incident['status']['_id'],
         code: DOMPurify.sanitize(formData.status.code),
         desc: DOMPurify.sanitize(formData.status.desc)
       },
       location: {
+        _id: incident['location']['_id'],
         location: DOMPurify.sanitize(formData.location.location),
         crossStreet: DOMPurify.sanitize(formData.location.crossStreet),
         lat: DOMPurify.sanitize(formData.location.lat),
         lon: DOMPurify.sanitize(formData.location.lon)
       },
       victim: {
+        _id: incident['victim']['_id'],
         age: DOMPurify.sanitize(formData.victim.age),
         sex: DOMPurify.sanitize(formData.victim.sex),
         descent: DOMPurify.sanitize(formData.victim.descent)
       },
       incident: {
+        _id: incident['_id'],
         drNo: DOMPurify.sanitize(formData.incident.drNo),
         dateRptd: DOMPurify.sanitize(formData.incident.dateRptd),
         dateOcc: DOMPurify.sanitize(formData.incident.dateOcc),
@@ -259,7 +268,7 @@ export default function DetailView({ incident, onClose }) {
     };
 
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_ATLAS_URL}/updateIncident`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_ATLAS_URL}/updateIncident?secret=${process.env.NEXT_PUBLIC_SECRET}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json'
@@ -269,9 +278,8 @@ export default function DetailView({ incident, onClose }) {
 
       if (response.ok) {
         const result = await response.json();
-        console.log(result);
-        alert('Report submitted successfully. You will be redirected to the home page now.');
-        window.location.href = '/';
+        alert('Incident report updated successfully.');
+        window.location.href = '/internal/dashboard';
       } else {
         const errorMessage = 'Failed to submit report. Please try again.';
         alert(errorMessage);

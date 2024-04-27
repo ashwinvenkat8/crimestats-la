@@ -78,7 +78,6 @@ export default function Table() {
                             data.map((incident, index) => (
                                 <tr key={index} onClick={() => {
                                     setSelectedIncident(incident)
-                                    console.log(selectedIncident);
                                 }}>
                                     <td>{incident.dr_no}</td>
                                     <td>{incident.date_rptd}</td>

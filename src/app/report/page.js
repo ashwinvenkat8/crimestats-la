@@ -270,8 +270,7 @@ export default function Report() {
 
       if (response.ok) {
         const result = await response.json();
-        console.log(result);
-        alert('Report submitted successfully. You will be redirected to the home page now.');
+        alert('Incident report submitted successfully. You will be redirected to the home page now.');
         window.location.href = '/';
       } else {
         const errorMessage = 'Failed to submit report. Please try again.';
