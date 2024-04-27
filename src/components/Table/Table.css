@@ -69,34 +69,3 @@
 .table-container .incidents-table tbody tr td {
     text-overflow: ellipsis;
 }
-
-.table-container .incidents-table .col-action {
-    width: 10%;
-}
-
-.table-container .incidents-table .action-button {
-    display: block;
-    margin: 5px;
-    padding: 0.5rem;
-    width: 5em;
-    border: none;
-    border-radius: 5px;
-}
-
-.table-container .incidents-table .update {
-    background-color: rgb(var(--update-button-bg-rgb));
-    color: rgb(var(--button-text-rgb));
-}
-
-.table-container .incidents-table .update:hover {
-    background-color: rgb(var(--update-button-hover-bg-rgb));
-}
-
-.table-container .incidents-table .delete {
-    background-color: rgb(var(--delete-button-bg-rgb));
-    color: rgb(var(--button-text-rgb));
-}
-
-.table-container .incidents-table .delete:hover {
-    background-color: rgb(var(--delete-button-hover-bg-rgb));
-}

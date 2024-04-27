@@ -24,6 +24,11 @@
     box-shadow: 0 0 10px rgba(var(--background-muted-rgb), 0.8);
 }
 
+.detail-view-content h2 {
+    color: rgb(var(--foreground-muted-rgb));
+    text-align: center;
+}
+
 .detail-view-content table {
     width: 100%;
     border-collapse: collapse;
@@ -39,21 +44,58 @@
     text-align: left;
 }
 
-.close-detail-view {
+.detail-view .actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 2rem;
+}
+
+.actions .update,
+.actions .delete,
+.actions .close {
     padding: 0.5rem;
     align-self: center;
     font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
-    background-color: transparent;
-    color: rgb(var(--foreground-muted-rgb));
-    border: 1px solid rgb(var(--foreground-muted-rgb));
+    outline: none;
+    border: none;
     border-radius: 5px;
 }
 
-.close-detail-view:hover {
+.actions .update {
+    background-color: transparent;
+    color: rgb(var(--update-button-bg-rgb));
+    border: 0.5px solid rgb(var(--update-button-bg-rgb));
+}
+
+.actions .delete {
+    background-color: transparent;
+    color: rgb(var(--delete-button-bg-rgb));
+    border: 0.5px solid rgb(var(--delete-button-bg-rgb));
+}
+
+.actions .close {
+    background-color: transparent;
+    color: rgb(var(--foreground-muted-rgb));
+    border: 0.5px solid rgb(var(--foreground-muted-rgb));
+}
+
+.actions .update:hover {
+    background-color: rgb(var(--update-button-bg-rgb));
+}
+
+.actions .delete:hover {
+    background-color: rgb(var(--delete-button-bg-rgb));
+}
+
+.actions .close:hover {
     background-color: rgb(var(--foreground-muted-rgb));
-    color: rgb(var(--background-muted-rgb));
-    border: 1px solid transparent;
-    border-radius: 5px;
+}
+
+.actions .update:hover,
+.actions .delete:hover,
+.actions .close:hover {
+    color: rgb(var(--button-text-rgb));
 }

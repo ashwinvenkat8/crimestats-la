@@ -1,10 +1,20 @@
+'use client'
+
 import './DetailView.css';
 
 export default function DetailView({ incident, onClose }) {
+  const handleUpdate = () => {
+    console.log('Update incident');
+  };
+  
+  const handleDelete = () => {
+    console.log('Delete incident');
+  };
+
   return (
     <div className="detail-view">
       <div className="detail-view-content">
-        <center><h3>Incident Details</h3></center>
+        <h2>Incident Details</h2>
         <table>
           {
             incident['dr_no'] ? (
@@ -119,7 +129,11 @@ export default function DetailView({ incident, onClose }) {
             ) : null
           }
         </table>
-        <button className="close-detail-view" onClick={onClose}>Close</button>
+        <div className="actions">
+          <button className="update" onClick={handleUpdate}>Update</button>
+          <button className="close" onClick={onClose}>Close</button>
+          <button className="delete" onClick={handleDelete}>Delete</button>
+        </div>
       </div>
     </div>
   );

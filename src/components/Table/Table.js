@@ -40,6 +40,8 @@ export default function Table() {
                 <div className="pagination">
                     <span>No. of records: {data.length}</span>
                     <div className="filler"></div>
+                    <span>Click on a row to view incident details</span>
+                    <div className="filler"></div>
                     <div>
                         <label htmlFor="range">Range </label>
                         <select name="range" onChange={(e) => setSkip(e.target.value)} defaultValue={skip}>
@@ -69,7 +71,6 @@ export default function Table() {
                             <th>Date Reported</th>
                             <th>Date Occurred</th>
                             <th>Time Occurred</th>
-                            <th className="col-action">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -83,12 +84,6 @@ export default function Table() {
                                     <td>{incident.date_rptd}</td>
                                     <td>{incident.date_occ}</td>
                                     <td>{incident.time_occ}</td>
-                                    <td className="col-action">
-                                        <center>
-                                            <button className="action-button update">Update</button>
-                                            <button className="action-button delete">Delete</button>
-                                        </center>
-                                    </td>
                                 </tr>
                             ))
                         }

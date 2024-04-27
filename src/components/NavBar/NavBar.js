@@ -5,7 +5,7 @@ import './NavBar.css';
 export default function NavBar({ navItems }) {
     const handleLogout = () => {
         sessionStorage.removeItem('auth');
-        alert('You have been logged out. Redirecting you to the login page now.');
+        alert('You have been logged out. Kindly clear your browser cookies and site data. You will be redirected to the login page now.');
     };
 
     return (
