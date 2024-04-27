@@ -598,7 +598,7 @@ export default function DetailView({ incident, onClose }) {
           {
             isEditing ? (
               <>
-                <button className="update" onClick={() => handleUpdate(incident)}>Update</button>
+                <button className="update" onClick={handleUpdate}>Update</button>
                 <button className="close" onClick={onClose}>Close</button>
               </>
             ) : (
