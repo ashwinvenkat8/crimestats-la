@@ -270,7 +270,7 @@ export default function DetailView({ incident, onClose }) {
 
     try {
       const response = await fetch(`${process.env.NEXT_PUBLIC_ATLAS_URL}/updateIncident?secret=${process.env.NEXT_PUBLIC_SECRET}`, {
-        method: 'PATCH',
+        method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
