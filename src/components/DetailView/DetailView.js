@@ -278,13 +278,13 @@ export default function DetailView({ incident, onClose }) {
       });
 
       if (response.ok) {
-        const result = await response.json();
+        await response.json();
         alert('Incident report updated successfully.');
         window.location.href = '/internal/dashboard';
       } else {
         const errorMessage = 'Failed to submit report. Please try again.';
         alert(errorMessage);
-        throw new Error('Failed to submit report. Please try again.');
+        throw new Error(errorMessage);
       }
     } catch (error) {
       console.error(error.message);
